@@ -39,4 +39,10 @@ public class BaseTest {
     protected int generateRandomNumber(){
         return new Random().nextInt(99999);
     }
+
+    public static final String MESSAGE_ERROR_FORMAT_EMAIL = "Please enter a valid email address.";
+    public static final String MESSAGE_ERROR_GENERAL = "Login was unsuccessful. Please correct the errors and try again.";
+    public static final String MESSAGE_ERROR_EMAIL = "No customer account found";
+    public static final String MESSAGE_ERROR_EMAIL_BLANK = "Please enter your email";
+    public static final String MESSAGE_ERROR_PASSWORD = "The credentials provided are incorrect";
 }

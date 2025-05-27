@@ -33,14 +33,17 @@ public class LoginPageObject extends BasePage {
         clickToLoginButton();
     }
 
-    public String getErrorMessageEmail(){
+    public String getEmailErrorMessage(){
         waitForElementVisible(driver, LoginPageUI.ERROR_MESSAGE_EMAIL);
         return getElementText(driver, LoginPageUI.ERROR_MESSAGE_EMAIL);
     }
 
-    public String getErrorMessage(){
+    public String getGeneralLoginErrorMessage(){
         waitForElementVisible(driver, LoginPageUI.ERROR_MESSAGE);
         return getElementText(driver, LoginPageUI.ERROR_MESSAGE);
     }
 
+    public String getPasswordErrorMessage() {
+        return null;
+    }
 }

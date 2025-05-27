@@ -31,4 +31,9 @@ public class HomePageObject extends BasePage {
         waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
         clickToElement(driver, HomePageUI.LOGIN_LINK);
     }
+
+    public void clickToLogoutLink() {
+        waitForElementClickable(driver, HomePageUI.LOGOUT_LINK);
+        clickToElement(driver, HomePageUI.LOGOUT_LINK);
+    }
 }

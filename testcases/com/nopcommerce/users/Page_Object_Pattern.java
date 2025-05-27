@@ -58,7 +58,7 @@ public class Page_Object_Pattern extends BaseTest {
         registerPage.enterToCompanyTextbox(companyName);
         registerPage.enterToPasswordTextbox(password);
         registerPage.enterToConfirmPasswordTextbox(password);
-        registerPage.clickToLoginButton();
+        registerPage.clickToRegisterButton();
 
         Assert.assertEquals(registerPage.getRegisterSuccesMessage(), "Your registration completed");
     }

@@ -6,7 +6,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
-import java.util.Locale;
 import java.util.Random;
 
 public class BaseTest {
@@ -40,9 +39,20 @@ public class BaseTest {
         return new Random().nextInt(99999);
     }
 
-    public static final String MESSAGE_ERROR_FORMAT_EMAIL = "Please enter a valid email address.";
     public static final String MESSAGE_ERROR_GENERAL = "Login was unsuccessful. Please correct the errors and try again.";
+    public static final String MESSAGE_ERROR_FORMAT_EMAIL = "Please enter a valid email address.";
+    public static final String MESSAGE_ERROR_WRONG_EMAIL = "Wrong email";
     public static final String MESSAGE_ERROR_EMAIL = "No customer account found";
     public static final String MESSAGE_ERROR_EMAIL_BLANK = "Please enter your email";
     public static final String MESSAGE_ERROR_PASSWORD = "The credentials provided are incorrect";
+
+    public static final String MESSAGE_ERROR_FIRSTNAME_REQUIRED = "First name is required.";
+    public static final String MESSAGE_ERROR_LASTNAME_REQUIRED = "Last name is required.";
+    public static final String MESSAGE_ERROR_EMAIL_REQUIRED = "Email is required.";
+    public static final String MESSAGE_ERROR_EMAIL_EXIST = "The specified email already exists";
+    public static final String MESSAGE_ERROR_PASSWORD_REQUIRED = "Password is required.";
+    public static final String MESSAGE_ERROR_PASSWORD_NOT_MATCH = "The password and confirmation password do not match.";
+    public static final String MESSAGE_ERROR_PASSWORD_INCORRECT_FORMAT = "Password must meet the following rules: must have at least 6 characters and not greater than 64 characters";
+    public static final String MESSAGE_ERROR_FIRSTNAME_BLANK = "First name is required.";
+
 }

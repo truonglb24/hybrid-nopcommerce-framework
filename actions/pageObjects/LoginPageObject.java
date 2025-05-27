@@ -42,8 +42,4 @@ public class LoginPageObject extends BasePage {
         waitForElementVisible(driver, LoginPageUI.ERROR_MESSAGE);
         return getElementText(driver, LoginPageUI.ERROR_MESSAGE);
     }
-
-    public String getPasswordErrorMessage() {
-        return null;
-    }
 }

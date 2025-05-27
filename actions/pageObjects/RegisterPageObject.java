@@ -17,6 +17,11 @@ public class RegisterPageObject extends BasePage {
         checkToCheckboxRadio(driver, RegisterPageUI.GENDER_MALE_RADIO);
     }
 
+    public void clickToFemaleRadio() {
+        waitForElementVisible(driver, RegisterPageUI.GENDER_FEMALE_RADIO);
+        checkToCheckboxRadio(driver, RegisterPageUI.GENDER_FEMALE_RADIO);
+    }
+
     public void enterToFirstNameTextbox(String firstName) {
         waitForElementVisible(driver, RegisterPageUI.FIRST_NAME_TEXTBOX);
         sendkeyToElement(driver, RegisterPageUI.FIRST_NAME_TEXTBOX, firstName);
@@ -37,6 +42,11 @@ public class RegisterPageObject extends BasePage {
         sendkeyToElement(driver, RegisterPageUI.COMPANY_NAME_TEXTBOX, companyName);
     }
 
+    public void uncheckNewLetter() {
+        waitForElementVisible(driver, RegisterPageUI.NEWSLETTER_CHECKBOX);
+        uncheckToCheckboxRadio(driver, RegisterPageUI.NEWSLETTER_CHECKBOX);
+    }
+
     public void enterToPasswordTextbox(String password) {
         waitForElementVisible(driver, RegisterPageUI.PASSWORD_TEXTBOX);
         sendkeyToElement(driver, RegisterPageUI.PASSWORD_TEXTBOX, password);
@@ -53,7 +63,42 @@ public class RegisterPageObject extends BasePage {
         return getElementText(driver, RegisterPageUI.REGISTER_SUCCESS_MESSAGE);
     }
 
-    public void clickToLoginButton() {
+    public boolean isDisplayRegisterSuccesMessage() {
+        waitForElementVisible(driver, RegisterPageUI.REGISTER_SUCCESS_MESSAGE);
+        return isElementDisplayed(driver, RegisterPageUI.REGISTER_SUCCESS_MESSAGE);
+    }
+
+    public String getFirstNameErrorMessage() {
+        waitForElementVisible(driver, RegisterPageUI.FIRSTNAME_ERROR);
+        return getElementText(driver, RegisterPageUI.FIRSTNAME_ERROR);
+    }
+
+    public String getLastNameErrorMessage() {
+        waitForElementVisible(driver, RegisterPageUI.LASTNAME_ERROR);
+        return getElementText(driver, RegisterPageUI.LASTNAME_ERROR);
+    }
+
+    public String getEmailErrorMessage() {
+        waitForElementVisible(driver, RegisterPageUI.EMAIL_ERROR);
+        return getElementText(driver, RegisterPageUI.EMAIL_ERROR);
+    }
+
+    public String getEmailExistErrorMessage() {
+        waitForElementVisible(driver, RegisterPageUI.EMAIL_EXIST_ERROR);
+        return getElementText(driver, RegisterPageUI.EMAIL_EXIST_ERROR);
+    }
+
+    public String getPasswordErrorMessage() {
+        waitForElementVisible(driver, RegisterPageUI.PASSWORD_ERROR);
+        return getElementText(driver, RegisterPageUI.PASSWORD_ERROR);
+    }
+
+    public String getConfirmPasswordErrorMessage() {
+        waitForElementVisible(driver, RegisterPageUI.CONFIRM_PASSWORD_ERROR);
+        return getElementText(driver, RegisterPageUI.CONFIRM_PASSWORD_ERROR);
+    }
+
+    public void clickToRegisterButton() {
         waitForElementVisible(driver, RegisterPageUI.REGISTER_BUTTON);
         clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
     }

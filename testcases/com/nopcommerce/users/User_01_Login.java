@@ -87,6 +87,14 @@ public class User_01_Login extends BaseTest {
         homePage.clickToLoginLink();
         loginPage.loginWithEmailAndPassword("78708@GMAIL.com", "123123");
         Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
+        homePage.clickToLogoutLink();
+    }
+
+    @Test
+    public void TC09_Login_With_Wrong_Email() {
+        homePage.clickToLoginLink();
+        loginPage.loginWithEmailAndPassword("23123@cc", "");
+        Assert.assertEquals(loginPage.getEmailErrorMessage(), MESSAGE_ERROR_WRONG_EMAIL);
     }
 
     @AfterClass

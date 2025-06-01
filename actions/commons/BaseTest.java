@@ -53,6 +53,9 @@ public class BaseTest {
     public static final String MESSAGE_ERROR_PASSWORD_REQUIRED = "Password is required.";
     public static final String MESSAGE_ERROR_PASSWORD_NOT_MATCH = "The password and confirmation password do not match.";
     public static final String MESSAGE_ERROR_PASSWORD_INCORRECT_FORMAT = "Password must meet the following rules: must have at least 6 characters and not greater than 64 characters";
-    public static final String MESSAGE_ERROR_FIRSTNAME_BLANK = "First name is required.";
 
+    public static final String NOTIFICATION_MISSING_PROCESSOR = "Please select Processor";
+    public static final String NOTIFICATION_MISSING_RAM = "Please select RAM";
+    public static final String NOTIFICATION_MISSING_HDD = "Please select HDD";
+    public static final String NOTIFICATION_QUANTITY_INCORRECT = "Quantity should be positive";
 }

@@ -13,7 +13,7 @@ public class BaseTest {
     private WebDriver driver;
     public static final String URL = "http://160.25.81.125/";
     public static final String ACCOUNT = "truonglb@rabiloo.com";
-    public static final String PASSWORD = "123123/";
+    public static final String PASSWORD = "123123";
 
     protected WebDriver getBrowserDriver(String browserName){
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());

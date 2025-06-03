@@ -64,8 +64,8 @@ public class DetailProductPageObject extends BasePage {
         waitForElementVisible(driver, DetailProductPageUI.PROCESSOR_DROPDOWN);
         selectItemInCustomDropdown(driver,
                 DetailProductPageUI.PROCESSOR_DROPDOWN,
-                DetailProductPageUI.PROCESSOR_VALUE_2,
-                "2.2 GHz Intel Pentium Dual-Core E2200");
+                DetailProductPageUI.PROCESSOR_VALUE_3,
+                "2.5 GHz Intel Pentium Dual-Core E2200 [+15 ₫]");
     }
     public void unselectRam(){
         waitForElementVisible(driver, DetailProductPageUI.RAM_DROPDOWN);
@@ -105,6 +105,7 @@ public class DetailProductPageObject extends BasePage {
 
     public void enterToQuantityTextbox(String quantity) {
         waitForElementVisible(driver, DetailProductPageUI.INPUT_QUANTITY);
+        clearInput(driver, DetailProductPageUI.INPUT_QUANTITY);
         sendkeyToElement(driver, DetailProductPageUI.INPUT_QUANTITY , quantity);
     }
 

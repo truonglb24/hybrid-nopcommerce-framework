@@ -29,18 +29,98 @@ public class User_03_DetailProduct extends BaseTest {
         homePageObject = new HomePageObject(driver);
         loginPageObject = new LoginPageObject(driver);
         homePageObject.clickToLoginLink();
-        loginPageObject.loginWithEmailAndPassword("truonglb@rabiloo.com","123123");
-        basePage.openPageUrl(driver, "http://localhost/build-your-own-computer");
+        loginPageObject.loginWithEmailAndPassword(ACCOUNT,PASSWORD);
+        basePage.openPageUrl(driver, URL + "build-your-own-computer");
 
         detailProductPageObject = new DetailProductPageObject(driver);
     }
 
     @Test
-    public void TC01_DetailProduct(){
+    public void TC01_DetailProduct_MissingHDDField(){
+
+        detailProductPageObject.selectProcessor();
+        detailProductPageObject.selectRam();
+        detailProductPageObject.checkToRadioOS();
+        detailProductPageObject.clickButtonAddToCart();
+
+        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_MISSING_HDD);
+        detailProductPageObject.clickToCloseInNotification();
+    }
+
+    @Test
+    public void TC02_DetailProduct_MissingProcessorField(){
+
+        detailProductPageObject.unselectProcessor();
+        detailProductPageObject.selectRam();
+        detailProductPageObject.checkToRadioHDD();
+        detailProductPageObject.checkToRadioOS();
+        detailProductPageObject.clickButtonAddToCart();
+
+        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_MISSING_PROCESSOR);
+        detailProductPageObject.clickToCloseInNotification();
+    }
+
+    @Test
+    public void TC03_DetailProduct_MissingRamField(){
+
+        detailProductPageObject.selectProcessor();
+        detailProductPageObject.unselectRam();
+        detailProductPageObject.checkToRadioHDD();
+        detailProductPageObject.checkToRadioOS();
+        detailProductPageObject.clickButtonAddToCart();
+
+        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_MISSING_RAM);
+        detailProductPageObject.clickToCloseInNotification();
+    }
+
+    @Test
+    public void TC04_DetailProduct_QuantityEqualZero(){
+
+        detailProductPageObject.selectProcessor();
+        detailProductPageObject.selectRam();
+        detailProductPageObject.checkToRadioHDD();
+        detailProductPageObject.checkToRadioOS();
+        detailProductPageObject.enterToQuantityTextbox("0");
+        detailProductPageObject.clickButtonAddToCart();
+
+        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_QUANTITY_INCORRECT);
+        detailProductPageObject.clickToCloseInNotification();
+    }
+
+    @Test
+    public void TC05_DetailProduct_QuantityNegative(){
+
+        detailProductPageObject.selectProcessor();
+        detailProductPageObject.selectRam();
+        detailProductPageObject.checkToRadioHDD();
+        detailProductPageObject.checkToRadioOS();
+        detailProductPageObject.enterToQuantityTextbox("-1");
+        detailProductPageObject.clickButtonAddToCart();
+
+        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_QUANTITY_INCORRECT);
+        detailProductPageObject.clickToCloseInNotification();
+    }
+
+    @Test
+    public void TC06_DetailProduct_QuantityIsText(){
+
+        detailProductPageObject.selectProcessor();
+        detailProductPageObject.selectRam();
+        detailProductPageObject.checkToRadioHDD();
+        detailProductPageObject.checkToRadioOS();
+        detailProductPageObject.enterToQuantityTextbox("t");
+        detailProductPageObject.clickButtonAddToCart();
+
+        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_QUANTITY_INCORRECT);
+        detailProductPageObject.clickToCloseInNotification();
+    }
+
+    @Test
+    public void TC15_DetailProduct_VerifyDefaultStateOfProduct(){
+
         detailProductPageObject.selectProcessor();
         detailProductPageObject.selectRam();
     }
-
     @AfterClass
     public void afterClass(){
         //driver.quit();

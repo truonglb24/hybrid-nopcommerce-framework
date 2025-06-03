@@ -11,6 +11,9 @@ import java.util.Random;
 public class BaseTest {
 
     private WebDriver driver;
+    public static final String URL = "http://160.25.81.125/";
+    public static final String ACCOUNT = "truonglb@rabiloo.com";
+    public static final String PASSWORD = "123123/";
 
     protected WebDriver getBrowserDriver(String browserName){
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
@@ -28,7 +31,7 @@ public class BaseTest {
                 throw new RuntimeException("Browser name is not valid");
         }
 
-        driver.get("http://localhost/");
+        driver.get(URL);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
 

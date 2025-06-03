@@ -11,12 +11,12 @@ public class DetailProductPageUI {
     public static final String SKU = "//div[@class = 'sku']";
     public static final String PROCESSOR_DROPDOWN = "//select[@id = 'product_attribute_1']";
     public static final String PROCESSOR_VALUE_1 = "//select[@id = 'product_attribute_1']/option[1]";
-    public static final String PROCESSOR_VALUE_2 = "//select[@id = 'product_attribute_1']/option[2]";
+    public static final String PROCESSOR_VALUE_3 = "//select[@id = 'product_attribute_1']/option[3]";
     public static final String RAM_DROPDOWN = "//select[@id = 'product_attribute_2']";
     public static final String RAM_VALUE_1 = "//select[@id = 'product_attribute_2']/option[1]";
     public static final String RAM_VALUE_2 = "//select[@id = 'product_attribute_2']/option[2]";
     public static final String HDD_320GB_RADIO = "//input[@id = 'product_attribute_3_6']";
-    public static final String OS_VISTAHOME = "//select[@id = 'product_attribute_4_8']";
+    public static final String OS_VISTAHOME = "//input[@id = 'product_attribute_4_8']";
     public static final String SOFTWARE_VISTAHOME = "//select[@id = 'product_attribute_5_10']";
     public static final String PRODUCT_PRICE = "//div[@class = 'product-price']";
     public static final String INPUT_QUANTITY = "//input[contains(@class,'qty-input')]";

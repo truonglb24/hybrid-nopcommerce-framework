@@ -46,6 +46,10 @@ public class BasePage {
         driver.navigate().forward();
     }
 
+    public void clearInput(WebDriver driver, String locator){
+        getElement(driver, locator).clear();
+    }
+
     public Alert waitAlertPrecence(WebDriver driver){
         return new WebDriverWait(driver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.alertIsPresent());

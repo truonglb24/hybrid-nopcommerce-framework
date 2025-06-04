@@ -57,8 +57,14 @@ public class BaseTest {
     public static final String MESSAGE_ERROR_PASSWORD_NOT_MATCH = "The password and confirmation password do not match.";
     public static final String MESSAGE_ERROR_PASSWORD_INCORRECT_FORMAT = "Password must meet the following rules: must have at least 6 characters and not greater than 64 characters";
 
+    public static final String STATUS_IN_STOCK = "In stock";
+    public static final String STATUS_OUT_STOCK = "Out stock";
+    public static final String STATUS_SKU = "COMP_CUST";
+    public static final String DELIVERY_METHOD_FREE_SHIPPING = "Free shipping";
     public static final String NOTIFICATION_MISSING_PROCESSOR = "Please select Processor";
     public static final String NOTIFICATION_MISSING_RAM = "Please select RAM";
     public static final String NOTIFICATION_MISSING_HDD = "Please select HDD";
     public static final String NOTIFICATION_QUANTITY_INCORRECT = "Quantity should be positive";
+    public static final String NOTIFICATION_ADD_TO_WISHLIST = "The product has been added to your wishlist";
+    public static final String NOTIFICATION_ADD_TO_COMPARELIST = "The product has been added to your product comparison";
 }

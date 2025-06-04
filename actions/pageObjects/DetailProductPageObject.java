@@ -17,6 +17,11 @@ public class DetailProductPageObject extends BasePage {
         return getElementText(driver, DetailProductPageUI.PRODUCT_NAME);
     }
 
+    public String getTitleRedirectEmail (){
+        waitForElementVisible(driver, DetailProductPageUI.EMAIL_TITLE);
+        return getElementText(driver, DetailProductPageUI.EMAIL_TITLE);
+    }
+
     public String getShortDescription (){
         waitForElementVisible(driver, DetailProductPageUI.SHORT_DESCRIPTION);
         return getElementText(driver, DetailProductPageUI.SHORT_DESCRIPTION);
@@ -27,9 +32,9 @@ public class DetailProductPageObject extends BasePage {
         return isElementDisplayed(driver, DetailProductPageUI.RATING);
     }
 
-    public boolean isAddReviewDisplay(){
-        waitForElementVisible(driver, DetailProductPageUI.ADD_PRODUCT_REVIEW_lINK);
-        return isElementDisplayed(driver, DetailProductPageUI.ADD_PRODUCT_REVIEW_lINK);
+    public boolean isAddReviewUnDisplay(){
+        waitForElementInvisible(driver, DetailProductPageUI.ADD_PRODUCT_REVIEW_lINK);
+        return isElementNotVisible(driver, DetailProductPageUI.ADD_PRODUCT_REVIEW_lINK);
     }
 
     public boolean isReviewedDisplay(){
@@ -94,8 +99,8 @@ public class DetailProductPageObject extends BasePage {
     }
 
     public void checkToCheckboxSoftware(){
-        waitForElementVisible(driver, DetailProductPageUI.SOFTWARE_VISTAHOME);
-        checkToCheckboxRadio(driver, DetailProductPageUI.SOFTWARE_VISTAHOME);
+        waitForElementVisible(driver, DetailProductPageUI.SOFTWARE_MS);
+        checkToCheckboxRadio(driver, DetailProductPageUI.SOFTWARE_MS);
     }
 
     public String getProductPrice (){

@@ -186,6 +186,14 @@ public class BasePage {
         return getElement(driver, locator).isDisplayed();
     }
 
+    public boolean isElementNotVisible( WebDriver driver, String locator) {
+        try {
+            return !getElement(driver,locator).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return true; // Không có trong DOM -> xem như không hiển thị
+        }
+    }
+
     public boolean isElementEnabled(WebDriver driver, String locator){
         return getElement(driver, locator).isEnabled();
     }

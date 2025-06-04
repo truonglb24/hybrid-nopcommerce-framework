@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 import pageObjects.DetailProductPageObject;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
 
 public class User_03_DetailProduct extends BaseTest {
 

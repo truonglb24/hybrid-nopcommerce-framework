@@ -5,15 +5,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.time.Duration;
 import java.util.Random;
 
 public class BaseTest {
 
     private WebDriver driver;
-    public static final String URL = "http://160.25.81.125/";
-    public static final String ACCOUNT = "truonglb@rabiloo.com";
-    public static final String PASSWORD = "123123";
+    protected final Logger log;
+    public BaseTest(){
+        log = LogManager.getLogger(getClass());
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 
     protected WebDriver getBrowserDriver(String browserName){
         BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());

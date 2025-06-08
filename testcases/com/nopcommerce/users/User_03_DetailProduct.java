@@ -2,6 +2,7 @@ package com.nopcommerce.users;
 
 import commons.BasePage;
 import commons.BaseTest;
+import commons.GlobalConstant;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -16,6 +17,7 @@ public class User_03_DetailProduct extends BaseTest {
 
     WebDriver driver;
     BasePage basePage;
+    GlobalConstant globalConstant;
     LoginPageObject loginPageObject;
     DetailProductPageObject detailProductPageObject;
     HomePageObject homePageObject;
@@ -25,18 +27,20 @@ public class User_03_DetailProduct extends BaseTest {
     public void beforeClass(String browserName){
         driver = getBrowserDriver(browserName);
         basePage = new BasePage();
+        globalConstant = new GlobalConstant();
         homePageObject = new HomePageObject(driver);
         loginPageObject = new LoginPageObject(driver);
         homePageObject.clickToLoginLink();
-        loginPageObject.loginWithEmailAndPassword(ACCOUNT,PASSWORD);
-        basePage.openPageUrl(driver, URL + "build-your-own-computer");
+        loginPageObject.loginWithEmailAndPassword(globalConstant.ACCOUNT,globalConstant.PASSWORD);
+        basePage.openPageUrl(driver, globalConstant.URL + "build-your-own-computer");
 
         detailProductPageObject = new DetailProductPageObject(driver);
+        basePage.refeshCurrentPAge(driver);
     }
 
     @Test
     public void TC01_DetailProduct_MissingHDDField(){
-
+        log.info("Step 01. Select processcor");
         detailProductPageObject.selectProcessor();
         detailProductPageObject.selectRam();
         detailProductPageObject.checkToRadioOS();

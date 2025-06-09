@@ -39,7 +39,7 @@ public class BaseTest {
                 throw new RuntimeException("Browser name is not valid");
         }
 
-        driver.get(URL);
+        driver.get(GlobalConstant.URL);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().window().maximize();
 

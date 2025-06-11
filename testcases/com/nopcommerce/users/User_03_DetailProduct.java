@@ -40,7 +40,6 @@ public class User_03_DetailProduct extends BaseTest {
 
     @Test
     public void TC01_DetailProduct_MissingHDDField(){
-        log.info("Step 01. Select processcor");
         detailProductPageObject.selectProcessor();
         detailProductPageObject.selectRam();
         detailProductPageObject.checkToRadioOS();

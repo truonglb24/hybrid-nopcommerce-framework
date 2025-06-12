@@ -2,6 +2,9 @@
 
 <suite name="Nopcommerce Automation Test" verbose="1" >
 
+    <listeners>
+        <listener class-name="reportConfigs.ExtentTestListener"></listener>
+    </listeners>
     <test name="Run on Firefox browser" >
         <parameter name="browser" value="firefox"></parameter>
         <classes>

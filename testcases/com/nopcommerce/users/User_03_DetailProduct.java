@@ -22,7 +22,6 @@ public class User_03_DetailProduct extends BaseTest {
 
     WebDriver driver;
     BasePage basePage;
-    GlobalConstants globalConstant;
     LoginPageObject loginPageObject;
     DetailProductPageObject detailProductPageObject;
     HomePageObject homePageObject;
@@ -32,12 +31,11 @@ public class User_03_DetailProduct extends BaseTest {
     public void beforeClass(String browserName){
         driver = getBrowserDriver(browserName);
         basePage = new BasePage();
-        globalConstant = new GlobalConstants();
         homePageObject = new HomePageObject(driver);
         loginPageObject = new LoginPageObject(driver);
         homePageObject.clickToLoginLink();
-        loginPageObject.loginWithEmailAndPassword(globalConstant.ACCOUNT,globalConstant.PASSWORD);
-        basePage.openPageUrl(driver, globalConstant.URL + "build-your-own-computer");
+        loginPageObject.loginWithEmailAndPassword(GlobalConstants.ACCOUNT,GlobalConstants.PASSWORD);
+        basePage.openPageUrl(driver, GlobalConstants.URL + "build-your-own-computer");
 
         detailProductPageObject = new DetailProductPageObject(driver);
         basePage.refeshCurrentPAge(driver);

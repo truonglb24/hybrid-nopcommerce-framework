@@ -4,7 +4,6 @@ import com.aventstack.extentreports.Status;
 import commons.BasePage;
 import commons.BaseTest;
 import commons.GlobalConstants;
-import commons.GlobalConstants;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;

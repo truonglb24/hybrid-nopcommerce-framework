@@ -2,6 +2,7 @@ package com.nopcommerce.users;
 
 import commons.BasePage;
 import commons.BaseTest;
+import commons.GlobalConstants;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -42,10 +43,10 @@ public class User_02_Register extends BaseTest {
         homePage.clickToRegisterLink();
         registerPage.clickToRegisterButton();
 
-        Assert.assertEquals(registerPage.getFirstNameErrorMessage(), MESSAGE_ERROR_FIRSTNAME_REQUIRED);
-        Assert.assertEquals(registerPage.getLastNameErrorMessage(), MESSAGE_ERROR_LASTNAME_REQUIRED);
-        Assert.assertEquals(registerPage.getEmailErrorMessage(), MESSAGE_ERROR_EMAIL_REQUIRED);
-        Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage(), MESSAGE_ERROR_PASSWORD_REQUIRED);
+        Assert.assertEquals(registerPage.getFirstNameErrorMessage(), GlobalConstants.MESSAGE_ERROR_FIRSTNAME_REQUIRED);
+        Assert.assertEquals(registerPage.getLastNameErrorMessage(), GlobalConstants.MESSAGE_ERROR_LASTNAME_REQUIRED);
+        Assert.assertEquals(registerPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_EMAIL_REQUIRED);
+        Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage(), GlobalConstants.MESSAGE_ERROR_PASSWORD_REQUIRED);
     }
 
     @Test
@@ -58,7 +59,7 @@ public class User_02_Register extends BaseTest {
         registerPage.enterToConfirmPasswordTextbox(password);
         registerPage.clickToRegisterButton();
 
-        Assert.assertEquals(registerPage.getEmailErrorMessage(), MESSAGE_ERROR_FORMAT_EMAIL);
+        Assert.assertEquals(registerPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_FORMAT_EMAIL);
     }
 
     @Test
@@ -71,7 +72,7 @@ public class User_02_Register extends BaseTest {
         registerPage.enterToConfirmPasswordTextbox("123");
         registerPage.clickToRegisterButton();
 
-        Assert.assertEquals(registerPage.getPasswordErrorMessage(), MESSAGE_ERROR_PASSWORD_INCORRECT_FORMAT);
+        Assert.assertEquals(registerPage.getPasswordErrorMessage(), GlobalConstants.MESSAGE_ERROR_PASSWORD_INCORRECT_FORMAT);
     }
 
     @Test
@@ -84,7 +85,7 @@ public class User_02_Register extends BaseTest {
         registerPage.enterToConfirmPasswordTextbox("123456");
         registerPage.clickToRegisterButton();
 
-        Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage(), MESSAGE_ERROR_PASSWORD_NOT_MATCH);
+        Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage(), GlobalConstants.MESSAGE_ERROR_PASSWORD_NOT_MATCH);
     }
     @Test
     public void TC05_Register_With_Existing_Email_With_Whitespace_Or_Uppercase() {
@@ -96,7 +97,7 @@ public class User_02_Register extends BaseTest {
         registerPage.enterToConfirmPasswordTextbox(password);
         registerPage.clickToRegisterButton();
 
-        Assert.assertEquals(registerPage.getEmailErrorMessage(), MESSAGE_ERROR_FORMAT_EMAIL);
+        Assert.assertEquals(registerPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_FORMAT_EMAIL);
     }
 
     @Test
@@ -109,7 +110,7 @@ public class User_02_Register extends BaseTest {
         registerPage.enterToConfirmPasswordTextbox(password);
         registerPage.clickToRegisterButton();
 
-        Assert.assertEquals(registerPage.getEmailErrorMessage(), MESSAGE_ERROR_WRONG_EMAIL);
+        Assert.assertEquals(registerPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_WRONG_EMAIL);
     }
 
     @Test
@@ -136,7 +137,7 @@ public class User_02_Register extends BaseTest {
         registerPage.enterToConfirmPasswordTextbox(password);
         registerPage.clickToRegisterButton();
 
-        Assert.assertEquals(registerPage.getEmailExistErrorMessage(), MESSAGE_ERROR_EMAIL_EXIST);
+        Assert.assertEquals(registerPage.getEmailExistErrorMessage(), GlobalConstants.MESSAGE_ERROR_EMAIL_EXIST);
     }
     @Test
     public void TC09_Register_With_Company_Name() {

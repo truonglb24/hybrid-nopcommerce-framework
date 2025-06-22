@@ -52,7 +52,7 @@ public class User_03_DetailProduct extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 04: Click Add to Cart");
         detailProductPageObject.clickButtonAddToCart();
         ExtentTestManager.getTest().log(Status.INFO, "Step 05: Verify notification for missing HDD is shown");
-        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_MISSING_HDD);
+        Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_MISSING_HDD);
         ExtentTestManager.getTest().log(Status.INFO, "Step 06: Close notification");
         detailProductPageObject.clickToCloseInNotification();
     }
@@ -71,7 +71,7 @@ public class User_03_DetailProduct extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 05: Click Add to Cart");
         detailProductPageObject.clickButtonAddToCart();
         ExtentTestManager.getTest().log(Status.INFO, "Step 06: Verify notification for missing Processor is shown");
-        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_MISSING_PROCESSOR);
+        Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_MISSING_PROCESSOR);
         ExtentTestManager.getTest().log(Status.INFO, "Step 07: Close notification");
         detailProductPageObject.clickToCloseInNotification();
     }
@@ -90,7 +90,7 @@ public class User_03_DetailProduct extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 05: Click Add to Cart");
         detailProductPageObject.clickButtonAddToCart();
         ExtentTestManager.getTest().log(Status.INFO, "Step 06: Verify notification for missing RAM is shown");
-        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_MISSING_RAM);
+        Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_MISSING_RAM);
         ExtentTestManager.getTest().log(Status.INFO, "Step 07: Close notification");
         detailProductPageObject.clickToCloseInNotification();
     }
@@ -111,7 +111,7 @@ public class User_03_DetailProduct extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 06: Click Add to Cart");
         detailProductPageObject.clickButtonAddToCart();
         ExtentTestManager.getTest().log(Status.INFO, "Step 07: Verify notification for incorrect quantity is shown");
-        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_QUANTITY_INCORRECT);
+        Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_QUANTITY_INCORRECT);
         ExtentTestManager.getTest().log(Status.INFO, "Step 08: Close notification");
         detailProductPageObject.clickToCloseInNotification();
     }
@@ -133,7 +133,7 @@ public class User_03_DetailProduct extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 06: Click Add to Cart");
         detailProductPageObject.clickButtonAddToCart();
         ExtentTestManager.getTest().log(Status.INFO, "Step 07: Verify notification for incorrect quantity is shown");
-        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_QUANTITY_INCORRECT);
+        Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_QUANTITY_INCORRECT);
         ExtentTestManager.getTest().log(Status.INFO, "Step 08: Close notification");
         detailProductPageObject.clickToCloseInNotification();
     }
@@ -156,7 +156,7 @@ public class User_03_DetailProduct extends BaseTest {
         detailProductPageObject.clickButtonAddToCart();
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 07: Verify notification for incorrect quantity is shown");
-        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_QUANTITY_INCORRECT);
+        Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_QUANTITY_INCORRECT);
         ExtentTestManager.getTest().log(Status.INFO, "Step 08: Close notification");
         detailProductPageObject.clickToCloseInNotification();
     }
@@ -186,21 +186,21 @@ public class User_03_DetailProduct extends BaseTest {
     public void TC10_DetailProduct_StockStatus(Method method){
         ExtentTestManager.startTest(method.getName(), "StockStatus");
         ExtentTestManager.getTest().log(Status.INFO, "StockStatus");
-        Assert.assertEquals(detailProductPageObject.getStockStatus(),"Availability: " + STATUS_IN_STOCK);
+        Assert.assertEquals(detailProductPageObject.getStockStatus(),"Availability: " + GlobalConstants.STATUS_IN_STOCK);
     }
 
     @Test
     public void TC11_DetailProduct_SkuStatus(Method method){
         ExtentTestManager.startTest(method.getName(), "SkuStatus");
         ExtentTestManager.getTest().log(Status.INFO, "SkuStatus");
-        Assert.assertEquals(detailProductPageObject.getSkud(),"SKU: " + STATUS_SKU);
+        Assert.assertEquals(detailProductPageObject.getSkud(),"SKU: " + GlobalConstants.STATUS_SKU);
     }
 
     @Test
     public void TC12_DetailProduct_DeliveryMethod(Method method){
         ExtentTestManager.startTest(method.getName(), "DeliveryMethod");
         ExtentTestManager.getTest().log(Status.INFO, "DeliveryMethod");
-        Assert.assertEquals(detailProductPageObject.getDeliveryMethod(), DELIVERY_METHOD_FREE_SHIPPING);
+        Assert.assertEquals(detailProductPageObject.getDeliveryMethod(), GlobalConstants.DELIVERY_METHOD_FREE_SHIPPING);
     }
 
     @Test
@@ -240,7 +240,7 @@ public class User_03_DetailProduct extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 07: Click to button AddToWishList");
         detailProductPageObject.clickButtonAddToWishList();
         ExtentTestManager.getTest().log(Status.INFO, "Step 08: Verify notification for success is shown");
-        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_ADD_TO_WISHLIST);
+        Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_ADD_TO_WISHLIST);
         ExtentTestManager.getTest().log(Status.INFO, "Step 09: Close notification");
         detailProductPageObject.clickToCloseInNotification();
     }
@@ -263,7 +263,7 @@ public class User_03_DetailProduct extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 07: Click to button AddToCompareList");
         detailProductPageObject.clickButtonAddToCompareList();
         ExtentTestManager.getTest().log(Status.INFO, "Step 08: Verify notification for success is shown");
-        Assert.assertEquals(detailProductPageObject.getNotification(), NOTIFICATION_ADD_TO_COMPARELIST);
+        Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_ADD_TO_COMPARELIST);
         ExtentTestManager.getTest().log(Status.INFO, "Step 09: Close notification");
         detailProductPageObject.clickToCloseInNotification();
     }

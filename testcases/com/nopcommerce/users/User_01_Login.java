@@ -1,6 +1,7 @@
 package com.nopcommerce.users;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -42,7 +43,7 @@ public class User_01_Login extends BaseTest {
         homePage.clickToLoginLink();
         loginPage.loginWithEmailAndPassword("78708@gmail.com", "wrongpass");
         Assert.assertEquals(loginPage.getGeneralLoginErrorMessage(),
-                MESSAGE_ERROR_GENERAL +"\n"+MESSAGE_ERROR_PASSWORD);
+                GlobalConstants.MESSAGE_ERROR_GENERAL +"\n"+GlobalConstants.MESSAGE_ERROR_PASSWORD);
     }
 
     @Test
@@ -50,21 +51,21 @@ public class User_01_Login extends BaseTest {
         homePage.clickToLoginLink();
         loginPage.loginWithEmailAndPassword("abc@notexist.com", "123456");
         Assert.assertEquals(loginPage.getGeneralLoginErrorMessage(),
-                MESSAGE_ERROR_GENERAL +"\n"+MESSAGE_ERROR_EMAIL);
+                GlobalConstants.MESSAGE_ERROR_GENERAL +"\n"+GlobalConstants.MESSAGE_ERROR_EMAIL);
     }
 
     @Test
     public void TC04_Login_With_Invalid_Email_Format() {
         homePage.clickToLoginLink();
         loginPage.loginWithEmailAndPassword("abc@.com", "123456");
-        Assert.assertEquals(loginPage.getEmailErrorMessage(), MESSAGE_ERROR_FORMAT_EMAIL);
+        Assert.assertEquals(loginPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_FORMAT_EMAIL);
     }
 
     @Test
     public void TC05_Login_With_Empty_Email_And_Password() {
         homePage.clickToLoginLink();
         loginPage.loginWithEmailAndPassword("", "");
-        Assert.assertEquals(loginPage.getEmailErrorMessage(), MESSAGE_ERROR_EMAIL_BLANK);
+        Assert.assertEquals(loginPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_EMAIL_BLANK);
     }
 
     @Test
@@ -72,14 +73,14 @@ public class User_01_Login extends BaseTest {
         homePage.clickToLoginLink();
         loginPage.loginWithEmailAndPassword("valid@example.com", "");
         Assert.assertEquals(loginPage.getGeneralLoginErrorMessage(),
-                MESSAGE_ERROR_GENERAL +"\n"+ MESSAGE_ERROR_EMAIL);
+                GlobalConstants.MESSAGE_ERROR_GENERAL +"\n"+ GlobalConstants.MESSAGE_ERROR_EMAIL);
     }
 
     @Test
     public void TC07_Login_Only_Password() {
         homePage.clickToLoginLink();
         loginPage.loginWithEmailAndPassword("", "123456");
-        Assert.assertEquals(loginPage.getEmailErrorMessage(), MESSAGE_ERROR_EMAIL_BLANK);
+        Assert.assertEquals(loginPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_EMAIL_BLANK);
     }
 
     @Test
@@ -94,7 +95,7 @@ public class User_01_Login extends BaseTest {
     public void TC09_Login_With_Wrong_Email() {
         homePage.clickToLoginLink();
         loginPage.loginWithEmailAndPassword("23123@cc", "");
-        Assert.assertEquals(loginPage.getEmailErrorMessage(), MESSAGE_ERROR_WRONG_EMAIL);
+        Assert.assertEquals(loginPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_WRONG_EMAIL);
     }
 
     @AfterClass

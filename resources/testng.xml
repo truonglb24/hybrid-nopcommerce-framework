@@ -10,7 +10,7 @@
         <classes>
 <!--            <class name="com.nopcommerce.users.User_01_Login" />-->
 <!--            <class name="com.nopcommerce.users.User_02_Register"/>-->
-            <class name="com.nopcommerce.users.User_03_DetailProduct"/>
+            <class name="com.nopcommerce.users.User_04_ShoppingCart"/>
         </classes>
     </test>
 

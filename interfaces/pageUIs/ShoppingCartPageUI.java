@@ -14,13 +14,16 @@ public class ShoppingCartPageUI {
     public static final String PRODUCT_QUANTITY_UP = "//td[@class = 'quantity']//div[@class= 'quantity up']";
     public static final String PRODUCT_QUANTITY_DOWN = "//td[@class = 'quantity']//div[@class= 'quantity down']";
 
-    public static final String PRODUCT_TOTAL = "//td[@class = 'subtotal']";
+    public static final String PRODUCT_SUBTOTAL = "//td[@class = 'subtotal']";
     public static final String PRODUCT_REMOVE_CART = "//td[@class = 'remove-from-cart']";
 
     public static final String BUTTON_CONTINUE_SHOPPING = "//button[contains(@class, 'continue-shopping-button')]";
     public static final String BUTTON_ESTIMATE_SHIPPING = "//a[@id = 'open-estimate-shipping-popup']";
 
     public static final String GIFT_WRAPPING_DROPDOWN = "//div[@class = 'checkout-attributes']//select";
+    public static final String GIFT_WRAPPING_NO = "//div[@class = 'checkout-attributes']//select/option[1]";
+    public static final String GIFT_WRAPPING_YES = "//div[@class = 'checkout-attributes']//select/option[2]";
+
     public static final String GIFT_WRAPPING_SELECTED = "//div[@class = 'selected-checkout-attributes']";
 
     public static final String INPUT_DISCOUNT_COUPON_CODE = "//input[@id = 'discountcouponcode']";

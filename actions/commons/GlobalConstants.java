@@ -42,4 +42,9 @@ public class GlobalConstants {
     public static final String NOTIFICATION_ADD_TO_COMPARELIST = "The product has been added to your product comparison";
 
     public static final String MESSAGE_CART_EMPTY = "Your Shopping Cart is empty!";
+    public static final String MESSAGE_COUPON_NOT_EXIST = "The coupon code cannot be found";
+    public static final String MESSAGE_CARD_NOT_EXIST = "The coupon code you entered couldn't be applied to your order";
+    public static final String MESSAGE_COUPON_ENTERED = "Entered coupon code - ";
+    public static final String MESSAGE_CARD_ENTERED = "The gift card code was applied";
+
 }

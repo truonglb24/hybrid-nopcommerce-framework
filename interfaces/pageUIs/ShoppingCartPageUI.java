@@ -3,8 +3,8 @@ package pageUIs;
 public class ShoppingCartPageUI {
     public static final String ORDER_SUMMARY_CONTENT = "//div[@class = 'page-body']/div[@class = 'order-summary-content']";
 
-    public static final String PRODUCT_SKU_NUMBER = "//td[@class = 'sku-number']";
-    public static final String PRODUCT_PICTURE = "//td[@class = 'product-picture']";
+    public static final String PRODUCT_SKU_NUMBER = "//td/span[@class = 'sku-number']";
+    public static final String PRODUCT_PICTURE = "//td[@class = 'product-picture']/a";
     public static final String PRODUCT_NAME = "//td[@class = 'product']/a[@class = 'product-name']";
     public static final String PRODUCT_ATTRIBUTES = "//td[@class = 'product']/div[@class = 'attributes']";
     public static final String PRODUCT_EDIT_ITEM = "//td[@class = 'product']/div[@class = 'edit-item']";

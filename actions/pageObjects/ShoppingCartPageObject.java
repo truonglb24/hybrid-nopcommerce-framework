@@ -37,6 +37,11 @@ public class ShoppingCartPageObject extends BasePage {
         return getElementText(driver, ShoppingCartPageUI.PRODUCT_ATTRIBUTES);
     }
 
+    public boolean isEditButtonDisplay(){
+        waitForElementVisible(driver, ShoppingCartPageUI.PRODUCT_EDIT_ITEM);
+        return isElementDisplayed(driver, ShoppingCartPageUI.PRODUCT_EDIT_ITEM);
+    }
+
     public void clickEditButton(){
         waitForElementVisible(driver, ShoppingCartPageUI.PRODUCT_EDIT_ITEM);
         clickToElement(driver, ShoppingCartPageUI.PRODUCT_EDIT_ITEM);
@@ -66,17 +71,26 @@ public class ShoppingCartPageObject extends BasePage {
         waitForElementVisible(driver, ShoppingCartPageUI.PRODUCT_SUBTOTAL);
         return getElementText(driver, ShoppingCartPageUI.PRODUCT_SUBTOTAL);
     }
-
+    public boolean isRemoveCartDisplay(){
+        waitForElementVisible(driver, ShoppingCartPageUI.PRODUCT_REMOVE_CART);
+        return isElementDisplayed(driver, ShoppingCartPageUI.PRODUCT_REMOVE_CART);
+    }
     public void clickToRemoveCart(){
         waitForElementVisible(driver, ShoppingCartPageUI.PRODUCT_REMOVE_CART);
         clickToElement(driver, ShoppingCartPageUI.PRODUCT_REMOVE_CART);
     }
-
+    public boolean isButtonContinueShoppingDisplay(){
+        waitForElementVisible(driver, ShoppingCartPageUI.BUTTON_CONTINUE_SHOPPING);
+        return isElementDisplayed(driver, ShoppingCartPageUI.BUTTON_CONTINUE_SHOPPING);
+    }
     public void clickButtonContinueShopping(){
         waitForElementVisible(driver, ShoppingCartPageUI.BUTTON_CONTINUE_SHOPPING);
         clickToElement(driver, ShoppingCartPageUI.BUTTON_CONTINUE_SHOPPING);
     }
-
+    public boolean isButtonEstimateShipping(){
+        waitForElementVisible(driver, ShoppingCartPageUI.BUTTON_ESTIMATE_SHIPPING);
+        return isElementDisplayed(driver, ShoppingCartPageUI.BUTTON_ESTIMATE_SHIPPING);
+    }
     public void clickButtonEstimateShipping(){
         waitForElementVisible(driver, ShoppingCartPageUI.BUTTON_ESTIMATE_SHIPPING);
         clickToElement(driver, ShoppingCartPageUI.BUTTON_ESTIMATE_SHIPPING);

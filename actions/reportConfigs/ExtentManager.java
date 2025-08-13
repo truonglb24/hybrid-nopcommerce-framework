@@ -13,7 +13,9 @@ public class ExtentManager {
     public static final ExtentReports extentReports = new ExtentReports();
 
     public synchronized static ExtentReports createExtentReports() {
-        String reportPath = GlobalConstants.EXTENT_PATH + "/extentV5/ExtentReport_ .html";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        String formattedDate = formatter.format(new Date());
+        String reportPath = GlobalConstants.EXTENT_PATH + "/extentV5/ExtentReport " +formattedDate+ ".html";
 
         ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
         reporter.config().setReportName("NopCommerce HTML Report");

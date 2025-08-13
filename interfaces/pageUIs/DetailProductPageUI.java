@@ -28,4 +28,5 @@ public class DetailProductPageUI {
     public static final String NOTIFICATION = "//div[contains(@class,'bar-notification')]/p";
     public static final String EMAIL_TITLE = "//div[@class = 'page-body']/div[@class = 'title']";
     public static final String  CLOSE = "//span[@class = 'close']";
+    public static final String CART = "//li[@id = 'topcartlink']";
 }

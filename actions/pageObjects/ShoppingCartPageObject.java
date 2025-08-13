@@ -2,7 +2,6 @@ package pageObjects;
 
 import commons.BasePage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.DetailProductPageUI;
 import pageUIs.ShoppingCartPageUI;
 
 public class ShoppingCartPageObject extends BasePage {
@@ -54,7 +53,7 @@ public class ShoppingCartPageObject extends BasePage {
 
     public String getQuantityNumber(){
         waitForElementVisible(driver, ShoppingCartPageUI.PRODUCT_QUANTITY);
-        return getElementText(driver, ShoppingCartPageUI.PRODUCT_QUANTITY);
+        return getElementAttribute(driver, ShoppingCartPageUI.PRODUCT_QUANTITY, "value");
     }
 
     public void clickToQuantityUp(){
@@ -141,19 +140,29 @@ public class ShoppingCartPageObject extends BasePage {
         sendkeyToElement(driver, ShoppingCartPageUI.INPUT_DISCOUNT_GIFT_CARD, giftCard);
     }
 
-    public void clickButtonApplyGiftCard(){
+    public void clickButtonAddGiftCard(){
         waitForElementVisible(driver, ShoppingCartPageUI.BUTTON_ADD_GIFT_CARD);
         clickToElement(driver, ShoppingCartPageUI.BUTTON_ADD_GIFT_CARD);
     }
 
-    public String getMessageSuccess(){
-        waitForElementVisible(driver, ShoppingCartPageUI.MESSAGE_SUCCESS);
-        return getElementText(driver, ShoppingCartPageUI.MESSAGE_SUCCESS);
+    public String getMessageCouponSuccess(){
+        waitForElementVisible(driver, ShoppingCartPageUI.MESSAGE_COUPON_SUCCESS);
+        return getElementText(driver, ShoppingCartPageUI.MESSAGE_COUPON_SUCCESS);
     }
 
-    public String getMessageFailure(){
-        waitForElementVisible(driver, ShoppingCartPageUI.MESSAGE_FAILURE);
-        return getElementText(driver, ShoppingCartPageUI.MESSAGE_FAILURE);
+    public String getMessageCouponFailure(){
+        waitForElementVisible(driver, ShoppingCartPageUI.MESSAGE_COUPON_FAILURE);
+        return getElementText(driver, ShoppingCartPageUI.MESSAGE_COUPON_FAILURE);
+    }
+
+    public String getMessageGiftCardSuccess(){
+        waitForElementVisible(driver, ShoppingCartPageUI.MESSAGE_GIFTCARD_SUCCESS);
+        return getElementText(driver, ShoppingCartPageUI.MESSAGE_GIFTCARD_SUCCESS);
+    }
+
+    public String getMessageGiftCardFailure(){
+        waitForElementVisible(driver, ShoppingCartPageUI.MESSAGE_GIFTCARD_FAILURE);
+        return getElementText(driver, ShoppingCartPageUI.MESSAGE_GIFTCARD_FAILURE);
     }
 
     public boolean isSubTotalLeftDisplay(){
@@ -248,7 +257,7 @@ public class ShoppingCartPageObject extends BasePage {
 
     public void clickCheckboxTermOfService(){
         waitForElementVisible(driver, ShoppingCartPageUI.CHECKBOX_TERM_OF_SERVICES);
-        clickToElement(driver, ShoppingCartPageUI.CHECKBOX_TERM_OF_SERVICES);
+        checkToCheckboxRadio(driver, ShoppingCartPageUI.CHECKBOX_TERM_OF_SERVICES);
     }
 
     public void clickToLinkReadTerm(){
@@ -259,5 +268,10 @@ public class ShoppingCartPageObject extends BasePage {
     public void clickButtonCheckout(){
         waitForElementVisible(driver, ShoppingCartPageUI.BUTTON_CHECKOUT);
         clickToElement(driver, ShoppingCartPageUI.BUTTON_CHECKOUT);
+    }
+
+    public void clickButtonApply(){
+        waitForElementVisible(driver, ShoppingCartPageUI.BUTTON_APPLY);
+        clickToElement(driver, ShoppingCartPageUI.BUTTON_APPLY);
     }
 }

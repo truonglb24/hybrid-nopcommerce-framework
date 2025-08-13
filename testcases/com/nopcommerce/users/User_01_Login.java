@@ -23,6 +23,18 @@ public class User_01_Login extends BaseTest {
     BasePage basePage;
     private LoginPageObject loginPage;
     private HomePageObject homePage;
+    // Test data
+    private String emailAddress = "78708@gmail.com";
+    private String uppercaseEmail = "78708@GMAIL.com";
+    private String emailNotExist = "abc@notexist.com";
+    private String invalidFormatEmail = "abc@.com";
+    private String wrongEmailFormat = "23123@cc";
+    private String emailBlank = "";
+    private String passwordBlank = "";
+
+    private String password = "123123";
+    private String wrongpassword = "wrong";
+
     // Precondition
     @Parameters("browser")
     @BeforeClass
@@ -40,8 +52,8 @@ public class User_01_Login extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Login Link");
         homePage.clickToLoginLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Entering Email and Password");
-        loginPage.loginWithEmailAndPassword("78708@gmail.com", "123123");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Entering Email and Password" +"(" + emailAddress +"-"+ password +")" );
+        loginPage.loginWithEmailAndPassword(emailAddress, password);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify after login success");
         Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
@@ -56,8 +68,8 @@ public class User_01_Login extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Login Link");
         homePage.clickToLoginLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter valid email and wrong password");
-        loginPage.loginWithEmailAndPassword("78708@gmail.com", "wrongpass");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter valid email and wrong password"+"(" + emailAddress +"-"+ wrongpassword +")");
+        loginPage.loginWithEmailAndPassword(emailAddress, wrongpassword);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify error message");
         Assert.assertEquals(loginPage.getGeneralLoginErrorMessage(),
@@ -70,8 +82,8 @@ public class User_01_Login extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Login Link");
         homePage.clickToLoginLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter nonexistent email and password");
-        loginPage.loginWithEmailAndPassword("abc@notexist.com", "123456");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter nonexistent email and password" +"(" + emailNotExist +"-"+ password +")");
+        loginPage.loginWithEmailAndPassword(emailNotExist, password);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify error message");
         Assert.assertEquals(loginPage.getGeneralLoginErrorMessage(),
@@ -84,8 +96,8 @@ public class User_01_Login extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Login Link");
         homePage.clickToLoginLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter invalid email format");
-        loginPage.loginWithEmailAndPassword("abc@.com", "123456");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter invalid email format"+"(" + invalidFormatEmail +"-"+ password +")");
+        loginPage.loginWithEmailAndPassword(invalidFormatEmail, password);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify email format error message");
         Assert.assertEquals(loginPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_FORMAT_EMAIL);
@@ -97,8 +109,8 @@ public class User_01_Login extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Login Link");
         homePage.clickToLoginLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Leave email and password blank");
-        loginPage.loginWithEmailAndPassword("", "");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Leave email and password blank"+"(" + emailBlank +"-"+ passwordBlank +")");
+        loginPage.loginWithEmailAndPassword(emailBlank, passwordBlank);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify email blank error message");
         Assert.assertEquals(loginPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_EMAIL_BLANK);
@@ -110,8 +122,8 @@ public class User_01_Login extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Login Link");
         homePage.clickToLoginLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter only email, leave password blank");
-        loginPage.loginWithEmailAndPassword("valid@example.com", "");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter only email, leave password blank"+"(" + emailNotExist +")");
+        loginPage.loginWithEmailAndPassword(emailNotExist, passwordBlank);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify error message");
         Assert.assertEquals(loginPage.getGeneralLoginErrorMessage(),
@@ -124,8 +136,8 @@ public class User_01_Login extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Login Link");
         homePage.clickToLoginLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Leave email blank, enter password");
-        loginPage.loginWithEmailAndPassword("", "123456");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Leave email blank, enter password"+"(" + emailBlank +"-"+ password +")");
+        loginPage.loginWithEmailAndPassword(emailBlank, password);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify email blank error message");
         Assert.assertEquals(loginPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_EMAIL_BLANK);
@@ -137,8 +149,8 @@ public class User_01_Login extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Login Link");
         homePage.clickToLoginLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter email with uppercase letters");
-        loginPage.loginWithEmailAndPassword("78708@GMAIL.com", "123123");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter email with uppercase letters"+"(" + uppercaseEmail +"-"+ password +")");
+        loginPage.loginWithEmailAndPassword(uppercaseEmail, password);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify login success with uppercase email");
         Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
@@ -153,8 +165,8 @@ public class User_01_Login extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Login Link");
         homePage.clickToLoginLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter wrong email format");
-        loginPage.loginWithEmailAndPassword("23123@cc", "");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter wrong email format"+"(" + wrongEmailFormat +"-"+ passwordBlank +")");
+        loginPage.loginWithEmailAndPassword(wrongEmailFormat, passwordBlank);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify wrong email error message");
         Assert.assertEquals(loginPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_WRONG_EMAIL);

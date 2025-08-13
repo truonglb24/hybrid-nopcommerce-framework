@@ -40,11 +40,15 @@ public class GlobalConstants {
     public static final String NOTIFICATION_QUANTITY_INCORRECT = "Quantity should be positive";
     public static final String NOTIFICATION_ADD_TO_WISHLIST = "The product has been added to your wishlist";
     public static final String NOTIFICATION_ADD_TO_COMPARELIST = "The product has been added to your product comparison";
+    public static final String NOTIFICATION_ADD_TO_CART = "The product has been added to your shopping cart";
 
     public static final String MESSAGE_CART_EMPTY = "Your Shopping Cart is empty!";
     public static final String MESSAGE_COUPON_NOT_EXIST = "The coupon code cannot be found";
     public static final String MESSAGE_CARD_NOT_EXIST = "The coupon code you entered couldn't be applied to your order";
+    public static final String MESSAGE_APPLY_COUPON_SUCCESS = "The coupon code was applied";
+    public static final String MESSAGE_APPLY_GIFTCARD_SUCCESS = "The gift card code was applied";
     public static final String MESSAGE_COUPON_ENTERED = "Entered coupon code - ";
-    public static final String MESSAGE_CARD_ENTERED = "The gift card code was applied";
 
+    public static final String GIFT_WRAPPING_IS_NO = "Gift wrapping: No";
+    public static final String GIFT_WRAPPING_IS_YES = "Gift wrapping: Yes [+10 ₫]";
 }

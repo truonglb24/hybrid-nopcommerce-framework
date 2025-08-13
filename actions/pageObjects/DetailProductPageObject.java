@@ -148,4 +148,9 @@ public class DetailProductPageObject extends BasePage {
         waitForElementVisible(driver, DetailProductPageUI.CLOSE);
         clickToElement(driver, DetailProductPageUI.CLOSE);
     }
+
+    public void clickToCart() {
+        waitForElementVisible(driver, DetailProductPageUI.CART);
+        clickToElement(driver, DetailProductPageUI.CART);
+    }
 }

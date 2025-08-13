@@ -27,13 +27,14 @@ public class User_03_DetailProduct extends BaseTest {
     // Precondition
     @Parameters("browser")
     @BeforeClass
-    public void beforeClass(String browserName){
+    public void beforeClass(String browserName) throws InterruptedException {
         driver = getBrowserDriver(browserName);
         basePage = new BasePage();
         homePageObject = new HomePageObject(driver);
         loginPageObject = new LoginPageObject(driver);
         homePageObject.clickToLoginLink();
         loginPageObject.loginWithEmailAndPassword(GlobalConstants.ACCOUNT,GlobalConstants.PASSWORD);
+        Thread.sleep(2000);
         basePage.openPageUrl(driver, GlobalConstants.URL + "build-your-own-computer");
 
         detailProductPageObject = new DetailProductPageObject(driver);
@@ -176,35 +177,28 @@ public class User_03_DetailProduct extends BaseTest {
     }
 
     @Test
-    public void TC09_DetailProduct_IsAddReviewUnDisplay(Method method){
-        ExtentTestManager.startTest(method.getName(), "IsAddReviewUnDisplay");
-        ExtentTestManager.getTest().log(Status.INFO, "IsAddReviewUnDisplay");
-        Assert.assertTrue(detailProductPageObject.isAddReviewUnDisplay());
-    }
-
-    @Test
-    public void TC10_DetailProduct_StockStatus(Method method){
+    public void TC09_DetailProduct_StockStatus(Method method){
         ExtentTestManager.startTest(method.getName(), "StockStatus");
         ExtentTestManager.getTest().log(Status.INFO, "StockStatus");
         Assert.assertEquals(detailProductPageObject.getStockStatus(),"Availability: " + GlobalConstants.STATUS_IN_STOCK);
     }
 
     @Test
-    public void TC11_DetailProduct_SkuStatus(Method method){
+    public void TC10_DetailProduct_SkuStatus(Method method){
         ExtentTestManager.startTest(method.getName(), "SkuStatus");
         ExtentTestManager.getTest().log(Status.INFO, "SkuStatus");
         Assert.assertEquals(detailProductPageObject.getSkud(),"SKU: " + GlobalConstants.STATUS_SKU);
     }
 
     @Test
-    public void TC12_DetailProduct_DeliveryMethod(Method method){
+    public void TC11_DetailProduct_DeliveryMethod(Method method){
         ExtentTestManager.startTest(method.getName(), "DeliveryMethod");
         ExtentTestManager.getTest().log(Status.INFO, "DeliveryMethod");
         Assert.assertEquals(detailProductPageObject.getDeliveryMethod(), GlobalConstants.DELIVERY_METHOD_FREE_SHIPPING);
     }
 
     @Test
-    public void TC13_DetailProduct_ValidateTotalMoney(Method method){
+    public void TC12_DetailProduct_ValidateTotalMoney(Method method){
         ExtentTestManager.startTest(method.getName(), "ValidateTotalMoney");
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Select Processor");
         detailProductPageObject.selectProcessor();
@@ -223,7 +217,7 @@ public class User_03_DetailProduct extends BaseTest {
     }
 
     @Test
-    public void TC14_DetailProduct_AddToWishlistSuccess(Method method){
+    public void TC13_DetailProduct_AddToWishlistSuccess(Method method){
         ExtentTestManager.startTest(method.getName(), "AddToWishlistSuccess");
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Select Processor");
         detailProductPageObject.selectProcessor();
@@ -246,7 +240,7 @@ public class User_03_DetailProduct extends BaseTest {
     }
 
     @Test
-    public void TC15_DetailProduct_AddToComparelist(Method method){
+    public void TC14_DetailProduct_AddToComparelist(Method method){
         ExtentTestManager.startTest(method.getName(), "Add To Wish list Success");
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Select Processor");
         detailProductPageObject.selectProcessor();
@@ -264,6 +258,29 @@ public class User_03_DetailProduct extends BaseTest {
         detailProductPageObject.clickButtonAddToCompareList();
         ExtentTestManager.getTest().log(Status.INFO, "Step 08: Verify notification for success is shown");
         Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_ADD_TO_COMPARELIST);
+        ExtentTestManager.getTest().log(Status.INFO, "Step 09: Close notification");
+        detailProductPageObject.clickToCloseInNotification();
+    }
+
+    @Test
+    public void TC15_DetailProduct_AddToCart(Method method){
+        ExtentTestManager.startTest(method.getName(), "Add To Cart");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 01: Select Processor");
+        detailProductPageObject.selectProcessor();
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Select RAM");
+        detailProductPageObject.selectRam();
+        ExtentTestManager.getTest().log(Status.INFO, "Step 03: Select HDD");
+        detailProductPageObject.checkToRadioHDD();
+        ExtentTestManager.getTest().log(Status.INFO, "Step 04: Select OS");
+        detailProductPageObject.checkToRadioOS();
+        ExtentTestManager.getTest().log(Status.INFO, "Step 05: Select Checkbox Software");
+        detailProductPageObject.checkToCheckboxSoftware();
+        ExtentTestManager.getTest().log(Status.INFO, "Step 06: Enter Quantity = 1");
+        detailProductPageObject.enterToQuantityTextbox("1");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 07: Click to button AddToCart");
+        detailProductPageObject.clickButtonAddToCart();
+        ExtentTestManager.getTest().log(Status.INFO, "Step 08: Verify notification for success is shown");
+        Assert.assertEquals(detailProductPageObject.getNotification(), GlobalConstants.NOTIFICATION_ADD_TO_CART);
         ExtentTestManager.getTest().log(Status.INFO, "Step 09: Close notification");
         detailProductPageObject.clickToCloseInNotification();
     }

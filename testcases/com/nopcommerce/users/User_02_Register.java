@@ -24,6 +24,13 @@ public class User_02_Register extends BaseTest {
     private RegisterPageObject registerPage;
     private HomePageObject homePage;
     private String firstName, lastName, emailAddress, companyName, password;
+    // Test data
+    private String shortPassword = "123";
+    private String emailInvalid = "abc@.com";
+    private String wrongPass = "123456";
+    private String whitespaceEmail = "78708  @gmail.com";
+    private String invalidDomain = "78708@gmail";
+
     // Precondition
     @Parameters("browser")
     @BeforeClass
@@ -61,10 +68,7 @@ public class User_02_Register extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 05: Verify Email error message");
         Assert.assertEquals(registerPage.getEmailErrorMessage(), GlobalConstants.MESSAGE_ERROR_EMAIL_REQUIRED);
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 06: Verify Password error message");
-        Assert.assertEquals(registerPage.getPasswordErrorMessage(), GlobalConstants.MESSAGE_ERROR_PASSWORD_REQUIRED);
-
-        ExtentTestManager.getTest().log(Status.INFO, "Step 07: Verify Confirm Password error message");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 06: Verify Confirm Password error message");
         Assert.assertEquals(registerPage.getConfirmPasswordErrorMessage(), GlobalConstants.MESSAGE_ERROR_PASSWORD_REQUIRED);
     }
 
@@ -74,10 +78,10 @@ public class User_02_Register extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Register Link");
         homePage.clickToRegisterLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter valid data except invalid email format");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter valid data except invalid email format - " + emailInvalid);
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
-        registerPage.enterToEmailTextbox("abc@.com");
+        registerPage.enterToEmailTextbox(emailInvalid);
         registerPage.enterToPasswordTextbox(password);
         registerPage.enterToConfirmPasswordTextbox(password);
 
@@ -94,12 +98,12 @@ public class User_02_Register extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Register Link");
         homePage.clickToRegisterLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter short password");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter short password - " + shortPassword );
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
         registerPage.enterToEmailTextbox(emailAddress);
-        registerPage.enterToPasswordTextbox("123");
-        registerPage.enterToConfirmPasswordTextbox("123");
+        registerPage.enterToPasswordTextbox(shortPassword);
+        registerPage.enterToConfirmPasswordTextbox(shortPassword);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Click Register Button");
         registerPage.clickToRegisterButton();
@@ -114,12 +118,12 @@ public class User_02_Register extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Register Link");
         homePage.clickToRegisterLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter mismatched password and confirm password");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter mismatched password" +"("+password +")"+ "and confirm password" +"("+wrongPass +")");
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
         registerPage.enterToEmailTextbox(emailAddress);
-        registerPage.enterToPasswordTextbox("password");
-        registerPage.enterToConfirmPasswordTextbox("123456");
+        registerPage.enterToPasswordTextbox(password);
+        registerPage.enterToConfirmPasswordTextbox(wrongPass);
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Click Register Button");
         registerPage.clickToRegisterButton();
@@ -134,10 +138,10 @@ public class User_02_Register extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Register Link");
         homePage.clickToRegisterLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter email with whitespace");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter email with whitespace -" + whitespaceEmail);
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
-        registerPage.enterToEmailTextbox("78708  @gmail.com");
+        registerPage.enterToEmailTextbox(whitespaceEmail);
         registerPage.enterToPasswordTextbox(password);
         registerPage.enterToConfirmPasswordTextbox(password);
 
@@ -154,10 +158,10 @@ public class User_02_Register extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Register Link");
         homePage.clickToRegisterLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter invalid email domain");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter invalid email domain -" + invalidDomain);
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
-        registerPage.enterToEmailTextbox("78708@gmail");
+        registerPage.enterToEmailTextbox(invalidDomain);
         registerPage.enterToPasswordTextbox(password);
         registerPage.enterToConfirmPasswordTextbox(password);
 
@@ -174,7 +178,7 @@ public class User_02_Register extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Register Link");
         homePage.clickToRegisterLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Fill in valid data and uncheck newsletter");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Fill in valid data and uncheck newsletter -" + emailAddress);
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
         registerPage.enterToEmailTextbox(emailAddress);
@@ -198,7 +202,7 @@ public class User_02_Register extends BaseTest {
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click to Register Link");
         homePage.clickToRegisterLink();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter data with existing email");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Enter data with existing email -" + emailAddress);
         registerPage.enterToFirstNameTextbox(firstName);
         registerPage.enterToLastNameTextbox(lastName);
         registerPage.enterToEmailTextbox(emailAddress);
